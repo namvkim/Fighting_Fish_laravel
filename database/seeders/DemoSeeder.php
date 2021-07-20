@@ -27,6 +27,7 @@ class DemoSeeder extends Seeder
             foreach ($data as $item) {
                 Admin::create($item);
             }
+
         } catch (\Throwable $th) {
         }
     }
