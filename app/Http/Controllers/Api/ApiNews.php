@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\News;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ApiNews extends Controller
@@ -25,7 +26,7 @@ class ApiNews extends Controller
             'content' => 'required',
             'img' => 'required',
             'users_like' => 'required',
-            
+
         ], [
             'news_type_id.required' => 'Please enter news type id',
             'title.required' => 'Please enter title',
@@ -33,7 +34,7 @@ class ApiNews extends Controller
             'content.required' => 'Please enter content',
             'img.required' => 'Please enter image',
             'users_like.required' => 'Please enter users like',
-            
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -78,7 +79,6 @@ class ApiNews extends Controller
             'img' => 'required',
             'users_like' => 'required',
 
-            
         ], [
             'news_type_id.required' => 'Please enter news type id',
             'title.required' => 'Please enter title',
@@ -86,7 +86,7 @@ class ApiNews extends Controller
             'content.required' => 'Please enter content',
             'img.required' => 'Please enter image',
             'users_like.required' => 'Please enter users like',
-            
+
         ]);
         if ($validator->fails()) {
             return response()->json([

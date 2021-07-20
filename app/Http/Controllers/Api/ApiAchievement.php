@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Models\Achievement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Achievement;
 
 class ApiAchievement extends Controller
 {
     //
-    
+
     public function index()
     {
         $achivements = Achievement::all();
@@ -19,7 +20,7 @@ class ApiAchievement extends Controller
 
     public function store(Request $request)
     {
-       
+
         $validator = Validator::make($request->all(), [
             'classes_id' => 'required',
             'authorName' => 'required',
@@ -69,9 +70,6 @@ class ApiAchievement extends Controller
         }
     }
 
-
-
-
     public function show($id)
     {
         $achivement = Achievement::findOrFail($id);
@@ -80,7 +78,7 @@ class ApiAchievement extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),  [
+        $validator = Validator::make($request->all(), [
             'classes_id' => 'required',
             'authorName' => 'required',
             'topic' => 'required',
@@ -127,7 +125,7 @@ class ApiAchievement extends Controller
                 'status' => 200,
             ]);
         }
-}
+    }
 
     public function destroy($id)
     {

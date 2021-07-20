@@ -13,6 +13,7 @@ class Events extends Migration
             $table->string('title');
             $table->string('img');
             $table->text('content');
+            $table->dateTime('time');
             $table->timestamps();
         });
     }

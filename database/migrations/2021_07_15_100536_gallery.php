@@ -13,6 +13,7 @@ class Gallery extends Migration
             $table->unsignedBigInteger('gallery_type_id');
             $table->string('title');
             $table->string('img');
+            $table->string('subtitle');
             $table->text('content');
             $table->timestamps();
             $table->foreign('gallery_type_id')

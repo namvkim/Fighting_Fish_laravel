@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Gallery;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ApiGallery extends Controller
 {
     //
 
-    
     public function index()
     {
         $gallerys = Gallery::all();
@@ -80,8 +80,7 @@ class ApiGallery extends Controller
                 'message' => $validator->getMessageBag(),
                 'status' => 0,
             ]);
-        }
-        else {
+        } else {
             // $file = $request->file('img');
             // $name_img = time() . '_' . $file->getClientOriginalName();
             // $file->move(public_path('images'), $name_img);

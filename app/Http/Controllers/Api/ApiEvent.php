@@ -1,33 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Models\Partner;
 use Illuminate\Support\Facades\Validator;
 
-class AipPartner extends Controller
+class ApiEvent extends Controller
 {
     public function index()
     {
-        $partners = Partner::all();
-        return response()->json($partners);
-
+        $events = Event::all();
+        return response()->json($events);
     }
 
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'link' => 'required',
+            'title' => 'required',
             'img' => 'required',
             'content' => 'required',
-            
         ], [
-            'name.required' => 'Please enter name',
-            'link.required' => 'Please enter link',
-            'img.required' => 'Please enter image',
+            'title.required' => 'Please enter title',
+            'img.required' => 'Please enter img',
             'content.required' => 'Please enter content',
         ]);
         if ($validator->fails()) {
@@ -40,16 +36,15 @@ class AipPartner extends Controller
             // $name_img = time() . '_' . $file->getClientOriginalName();
             // $file->move(public_path('images'), $name_img);
 
-            $partner = new Partner();
-            $partner->name = $request->name;
-            $partner->link = $request->link;
-            $partner->img = $request->img;
-            $partner->content = $request->content;
-            $partner->save();
+            $event = new Event();
+            $event->title = $request->title;
+            $event->img = $request->img;
+            $event->content = $request->content;
+            $event->save();
 
-            $partners = Partner::all();
+            $events = Event::all();
             return response()->json([
-                'results' => $partners,
+                'results' => $events,
                 'status' => 200,
             ]);
         }
@@ -57,25 +52,20 @@ class AipPartner extends Controller
 
     public function show($id)
     {
-        $partner = Partner::findOrFail($id);
-        return response()->json($partner);
+        $event = Event::findOrFail($id);
+        return response()->json($event);
     }
 
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'link' => 'required',
+            'title' => 'required',
             'img' => 'required',
             'content' => 'required',
-
-            
         ], [
-            'name.required' => 'Please enter name',
-            'link.required' => 'Please enter link',
-            'img.required' => 'Please enter image',
+            'title.required' => 'Please enter title',
+            'img.required' => 'Please enter img',
             'content.required' => 'Please enter content',
-            
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -87,16 +77,15 @@ class AipPartner extends Controller
             // $name_img = time() . '_' . $file->getClientOriginalName();
             // $file->move(public_path('images'), $name_img);
 
-            $partner = Partner::findOrFail($id);
-            $partner->name = $request->name;
-            $partner->link = $request->link;
-            $partner->img = $request->img;
-            $partner->content = $request->content;
-            $partner->save();
+            $event = Event::findOrFail($id);
+            $event->title = $request->title;
+            $event->img = $request->img;
+            $event->content = $request->content;
+            $event->save();
 
-            $partners = Partner::all();
+            $events = Event::all();
             return response()->json([
-                'results' => $partners,
+                'results' => $events,
                 'status' => 200,
             ]);
         }
@@ -104,10 +93,10 @@ class AipPartner extends Controller
 
     public function destroy($id)
     {
-        $partner = Partner::findOrFail($id);
-        $partner->delete();
+        $event = Event::findOrFail($id);
+        $event->delete();
 
-        $partners = Partner::all();
-        return response()->json($partners);
+        $events = Event::all();
+        return response()->json($events);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-
+use App\Http\Controllers\Controller;
 use App\Models\Staff_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,10 +20,10 @@ class ApiStaffType extends Controller
 
         $validator = Validator::make($request->all(), [
             'type' => 'required',
-            
+
         ], [
             'type.required' => 'Please enter type',
-           
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -37,7 +37,7 @@ class ApiStaffType extends Controller
 
             $stafftype = new Staff_type();
             $stafftype->type = $request->type;
-            
+
             $stafftype->save();
 
             $stafftypes = Staff_type::all();
@@ -58,10 +58,10 @@ class ApiStaffType extends Controller
     {
         $validator = Validator::make($request->all(), [
             'type' => 'required',
-            
+
         ], [
             'type.required' => 'Please enter type',
-            
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -75,7 +75,7 @@ class ApiStaffType extends Controller
 
             $stafftype = Staff_type::findOrFail($id);
             $stafftype->type = $request->type;
-           
+
             $stafftype->save();
 
             $stafftypes = Staff_type::all();

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +26,7 @@ class ApiStaff extends Controller
             'linkin' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
-            
+
         ], [
             'staffs_type_id.required' => 'Please enter staff type id',
             'name.required' => 'Please enter staff name',
@@ -34,7 +35,7 @@ class ApiStaff extends Controller
             'linkin.required' => 'Please enter linkin',
             'twitter.required' => 'Please enter twitter',
             'instagram.required' => 'Please enter instagram',
-           
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -80,7 +81,7 @@ class ApiStaff extends Controller
             'linkin' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
-            
+
         ], [
             'staffs_type_id.required' => 'Please enter staff type id',
             'name.required' => 'Please enter staff name',
@@ -89,7 +90,7 @@ class ApiStaff extends Controller
             'linkin.required' => 'Please enter linkin',
             'twitter.required' => 'Please enter twitter',
             'instagram.required' => 'Please enter instagram',
-           
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -109,7 +110,7 @@ class ApiStaff extends Controller
             $staff->linkin = $request->linkin;
             $staff->twitter = $request->twitter;
             $staff->instagram = $request->instagram;
-           
+
             $staff->save();
 
             $staffs = Staff::all();
@@ -122,7 +123,7 @@ class ApiStaff extends Controller
 
     public function destroy($id)
     {
-        $staff= Staff::findOrFail($id);
+        $staff = Staff::findOrFail($id);
         $staff->delete();
 
         $staffs = Staff::all();

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,6 @@ class ApiAdmin extends Controller
 
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'email' => 'required',
             'pass' => 'required|min:6',
@@ -31,9 +31,6 @@ class ApiAdmin extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $admin = new Admin();
             $admin->email = $request->email;

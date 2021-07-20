@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Models\Gallery_type;
 use Illuminate\Http\Request;
-use App\Models\News_type;
 use Illuminate\Support\Facades\Validator;
 
-class ApiNewsType extends Controller
+class ApiGalleryType extends Controller
 {
+
     public function index()
     {
-        $news_types = News_type::all();
-        return response()->json($news_types);
-
+        $gallery_types = Gallery_type::all();
+        return response()->json($gallery_types);
     }
 
     public function store(Request $request)
@@ -20,9 +21,10 @@ class ApiNewsType extends Controller
 
         $validator = Validator::make($request->all(), [
             'type' => 'required',
-            
+
         ], [
             'type.required' => 'Please enter type',
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -34,13 +36,13 @@ class ApiNewsType extends Controller
             // $name_img = time() . '_' . $file->getClientOriginalName();
             // $file->move(public_path('images'), $name_img);
 
-            $news_type = new News_type();
-            $news_type->type = $request->type;
-            $news_type->save();
+            $gallery_type = new Gallery_type();
+            $gallery_type->type = $request->type;
+            $gallery_type->save();
 
-            $news_types = News_type::all();
+            $gallery_types = Gallery_type::all();
             return response()->json([
-                'results' => $news_types,
+                'results' => $gallery_types,
                 'status' => 200,
             ]);
         }
@@ -48,18 +50,16 @@ class ApiNewsType extends Controller
 
     public function show($id)
     {
-        $news_type = News_type::findOrFail($id);
-        return response()->json($news_type);
+        $gallery_type = Gallery_type::findOrFail($id);
+        return response()->json($gallery_type);
     }
 
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'type' => 'required',
-            
         ], [
             'type.required' => 'Please enter type',
-            
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -71,13 +71,13 @@ class ApiNewsType extends Controller
             // $name_img = time() . '_' . $file->getClientOriginalName();
             // $file->move(public_path('images'), $name_img);
 
-            $news_type = News_type::findOrFail($id);
-            $news_type->type = $request->type;
-            $news_type->save();
+            $gallery_type = Gallery_type::findOrFail($id);
+            $gallery_type->type = $request->type;
+            $gallery_type->save();
 
-            $news_types = News_type::all();
+            $gallery_types = Gallery_type::all();
             return response()->json([
-                'results' => $news_types,
+                'results' => $gallery_types,
                 'status' => 200,
             ]);
         }
@@ -85,10 +85,10 @@ class ApiNewsType extends Controller
 
     public function destroy($id)
     {
-        $news_type = News_type::findOrFail($id);
-        $news_type->delete();
+        $gallery_type = Gallery_type::findOrFail($id);
+        $gallery_type->delete();
 
-        $news_types = News_type::all();
-        return response()->json($news_types);
+        $gallery_types = Gallery_type::all();
+        return response()->json($gallery_types);
     }
 }
