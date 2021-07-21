@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiDonation extends Controller
 {
     public function index()
     {
-        $donations = Donation::all();
+        $donations = DB::table('donation')
+            ->join('users', 'donation.users_id', '=', 'users.id')
+            ->select('donation.id', 'users.name', 'users.email', 'donation.money', 'donation.message', 'donation.created_at')
+            ->orderBy('donation.created_at', 'DESC')
+            ->get();
+
         return response()->json($donations);
     }
 
@@ -96,7 +102,12 @@ class ApiDonation extends Controller
         $donation = Donation::findOrFail($id);
         $donation->delete();
 
-        $donations = Donation::all();
+        $donations = DB::table('donation')
+            ->join('users', 'donation.users_id', '=', 'users.id')
+            ->select('donation.id', 'users.name', 'users.email', 'donation.money', 'donation.message', 'donation.created_at')
+            ->orderBy('donation.created_at', 'DESC')
+            ->get();
+
         return response()->json($donations);
     }
 }

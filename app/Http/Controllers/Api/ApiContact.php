@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiContact extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = DB::table('contacts')
+            ->join('users', 'contacts.users_id', '=', 'users.id')
+            ->select('contacts.id', 'users.name', 'users.email', 'contacts.title', 'contacts.message', 'contacts.created_at')
+            ->orderBy('contacts.created_at', 'DESC')
+            ->get();
+
         return response()->json($contacts);
 
     }
@@ -35,9 +41,6 @@ class ApiContact extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $contact = new Contact();
             $contact->users_id = $request->users_id;
@@ -101,7 +104,12 @@ class ApiContact extends Controller
         $contact = Contact::findOrFail($id);
         $contact->delete();
 
-        $contacts = Contact::all();
+        $contacts = DB::table('contacts')
+            ->join('users', 'contacts.users_id', '=', 'users.id')
+            ->select('contacts.id', 'users.name', 'users.email', 'users.phone', 'users.address', 'contacts.title', 'contacts.message')
+            ->orderBy('contacts.created_at', 'DESC')
+            ->get();
+
         return response()->json($contacts);
     }
 }

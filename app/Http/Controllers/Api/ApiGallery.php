@@ -5,17 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiGallery extends Controller
 {
-    //
-
     public function index()
     {
-        $gallerys = Gallery::all();
-        return response()->json($gallerys);
+        $gallerys = DB::table('gallery')
+            ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
+            ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type', 'gallery.gallery_type_id')
+            ->orderBy('gallery.created_at', 'DESC')
+            ->get();
 
+        return response()->json($gallerys);
     }
 
     public function store(Request $request)
@@ -37,18 +40,21 @@ class ApiGallery extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $gallery = new Gallery();
             $gallery->gallery_type_id = $request->gallery_type_id;
             $gallery->title = $request->title;
             $gallery->img = $request->img;
+            $gallery->subtitle = $request->subtitle;
             $gallery->content = $request->content;
             $gallery->save();
 
-            $gallerys = Gallery::all();
+            $gallerys = DB::table('gallery')
+                ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
+                ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type')
+                ->orderBy('gallery.created_at', 'DESC')
+                ->get();
+
             return response()->json([
                 'results' => $gallerys,
                 'status' => 200,
@@ -81,18 +87,21 @@ class ApiGallery extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $gallery = Gallery::findOrFail($id);
             $gallery->gallery_type_id = $request->gallery_type_id;
             $gallery->title = $request->title;
             $gallery->img = $request->img;
+            $gallery->subtitle = $request->subtitle;
             $gallery->content = $request->content;
             $gallery->save();
 
-            $gallerys = Gallery::all();
+            $gallerys = DB::table('gallery')
+                ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
+                ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type', 'gallery.gallery_type_id')
+                ->orderBy('gallery.created_at', 'DESC')
+                ->get();
+
             return response()->json([
                 'results' => $gallerys,
                 'status' => 200,
@@ -105,7 +114,12 @@ class ApiGallery extends Controller
         $gallery = Gallery::findOrFail($id);
         $gallery->delete();
 
-        $gallerys = Gallery::all();
+        $gallerys = DB::table('gallery')
+            ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
+            ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type')
+            ->orderBy('gallery.created_at', 'DESC')
+            ->get();
+
         return response()->json($gallerys);
     }
 }
