@@ -12,10 +12,10 @@ class News extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('news_type_id');
             $table->string('title');
-            $table->string('shortContent');
+            $table->text('shortContent');
             $table->text('content');
             $table->string('img');
-            $table->integer('users_like');
+            $table->integer('users_like')->default(0);
             $table->timestamps();
             $table->foreign('news_type_id')
                 ->references('id')->on('news_type')

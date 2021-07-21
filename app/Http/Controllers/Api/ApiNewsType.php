@@ -5,15 +5,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\News_type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiNewsType extends Controller
 {
     public function index()
     {
-        $news_types = News_type::all();
+        $news_types = DB::table('news_type')
+            ->orderBy('news_type.updated_at', 'DESC')
+            ->get();
         return response()->json($news_types);
-
     }
 
     public function store(Request $request)
@@ -39,7 +41,9 @@ class ApiNewsType extends Controller
             $news_type->type = $request->type;
             $news_type->save();
 
-            $news_types = News_type::all();
+            $news_types = DB::table('news_type')
+                ->orderBy('news_type.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $news_types,
                 'status' => 200,
@@ -76,7 +80,9 @@ class ApiNewsType extends Controller
             $news_type->type = $request->type;
             $news_type->save();
 
-            $news_types = News_type::all();
+            $news_types = DB::table('news_type')
+                ->orderBy('news_type.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $news_types,
                 'status' => 200,

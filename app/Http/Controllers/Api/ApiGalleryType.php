@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery_type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiGalleryType extends Controller
@@ -12,7 +13,9 @@ class ApiGalleryType extends Controller
 
     public function index()
     {
-        $gallery_types = Gallery_type::all();
+        $gallery_types = DB::table('gallery_type')
+            ->orderBy('gallery_type.updated_at', 'DESC')
+            ->get();
         return response()->json($gallery_types);
     }
 
@@ -40,7 +43,9 @@ class ApiGalleryType extends Controller
             $gallery_type->type = $request->type;
             $gallery_type->save();
 
-            $gallery_types = Gallery_type::all();
+            $gallery_types = DB::table('gallery_type')
+                ->orderBy('gallery_type.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $gallery_types,
                 'status' => 200,
@@ -75,7 +80,9 @@ class ApiGalleryType extends Controller
             $gallery_type->type = $request->type;
             $gallery_type->save();
 
-            $gallery_types = Gallery_type::all();
+            $gallery_types = DB::table('gallery_type')
+                ->orderBy('gallery_type.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $gallery_types,
                 'status' => 200,

@@ -15,7 +15,7 @@ class ApiGallery extends Controller
         $gallerys = DB::table('gallery')
             ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
             ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type', 'gallery.gallery_type_id')
-            ->orderBy('gallery.created_at', 'DESC')
+            ->orderBy('gallery.updated_at', 'DESC')
             ->get();
 
         return response()->json($gallerys);
@@ -52,7 +52,7 @@ class ApiGallery extends Controller
             $gallerys = DB::table('gallery')
                 ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
                 ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type')
-                ->orderBy('gallery.created_at', 'DESC')
+                ->orderBy('gallery.updated_at', 'DESC')
                 ->get();
 
             return response()->json([
@@ -99,7 +99,7 @@ class ApiGallery extends Controller
             $gallerys = DB::table('gallery')
                 ->join('gallery_type', 'gallery_type.id', '=', 'gallery.gallery_type_id')
                 ->select('gallery.id', 'gallery.title', 'gallery.img', 'gallery.subtitle', 'gallery.content', 'gallery_type.type', 'gallery.gallery_type_id')
-                ->orderBy('gallery.created_at', 'DESC')
+                ->orderBy('gallery.updated_at', 'DESC')
                 ->get();
 
             return response()->json([
