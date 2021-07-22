@@ -25,7 +25,7 @@
             <h1>Email Contact</h1>
             <input type="text" name="txtEmail" class="form-control" id="" placeholder="Input email">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-warning">Submit</button>
         </div>
     </form>
 </body>
