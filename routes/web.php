@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Email\EmailController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('admin', function () {
@@ -7,3 +8,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::resource('admin/user/visited', VisitedController::class);
+Route::get('/email', function () {
+    return view('mails.FormEmail');
+});
+Route::post('/sendEmail', [EmailController::class, 'store']);
