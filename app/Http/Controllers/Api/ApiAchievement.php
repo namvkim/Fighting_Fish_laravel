@@ -5,15 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Achievement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiAchievement extends Controller
 {
-    //
 
     public function index()
     {
-        $achivements = Achievement::all();
+        $achivements = DB::table('achievements')
+            ->join('classes', 'achievements.classes_id', '=', 'classes.id')
+            ->select('achievements.id', 'achievements.classes_id', 'achievements.authorName', 'achievements.topic', 'achievements.technology',
+                'achievements.img', 'achievements.shortContent', 'achievements.content', 'achievements.link', 'classes.name')
+            ->orderBy('achievements.created_at', 'DESC')
+            ->get();
         return response()->json($achivements);
 
     }
@@ -46,10 +51,6 @@ class ApiAchievement extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
-            // $achivements = Achivements::all();
 
             $achivement = new Achievement();
             $achivement->classes_id = $request->classes_id;
@@ -62,7 +63,12 @@ class ApiAchievement extends Controller
             $achivement->link = $request->link;
             $achivement->save();
 
-            $achivements = Achievement::all();
+            $achivements = DB::table('achievements')
+                ->join('classes', 'achievements.classes_id', '=', 'classes.id')
+                ->select('achievements.id', 'achievements.classes_id', 'achievements.authorName', 'achievements.topic', 'achievements.technology',
+                    'achievements.img', 'achievements.shortContent', 'achievements.content', 'achievements.link', 'classes.name')
+                ->orderBy('achievements.created_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $achivements,
                 'status' => 200,
@@ -103,9 +109,6 @@ class ApiAchievement extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $achivement = Achievement::findOrFail($id);
             $achivement->classes_id = $request->classes_id;
@@ -118,7 +121,12 @@ class ApiAchievement extends Controller
             $achivement->link = $request->link;
             $achivement->save();
 
-            $achivements = Achievement::all();
+            $achivements = DB::table('achievements')
+                ->join('classes', 'achievements.classes_id', '=', 'classes.id')
+                ->select('achievements.id', 'achievements.classes_id', 'achievements.authorName', 'achievements.topic', 'achievements.technology',
+                    'achievements.img', 'achievements.shortContent', 'achievements.content', 'achievements.link', 'classes.name')
+                ->orderBy('achievements.created_at', 'DESC')
+                ->get();
 
             return response()->json([
                 'results' => $achivements,
@@ -132,7 +140,12 @@ class ApiAchievement extends Controller
         $achivement = Achievement::findOrFail($id);
         $achivement->delete();
 
-        $achivements = Achievement::all();
+        $achivements = DB::table('achievements')
+            ->join('classes', 'achievements.classes_id', '=', 'classes.id')
+            ->select('achievements.id', 'achievements.classes_id', 'achievements.authorName', 'achievements.topic', 'achievements.technology',
+                'achievements.img', 'achievements.shortContent', 'achievements.content', 'achievements.link', 'classes.name')
+            ->orderBy('achievements.created_at', 'DESC')
+            ->get();
         return response()->json($achivements);
     }
 }

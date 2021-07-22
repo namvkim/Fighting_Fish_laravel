@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Classes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiClass extends Controller
 {
     public function index()
     {
-        $classes = Classes::all();
+        $classes = DB::table('classes')
+            ->orderBy('classes.created_at', 'DESC')
+            ->get();
         return response()->json($classes);
     }
 
@@ -30,15 +33,14 @@ class ApiClass extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $class = new Classes();
             $class->name = $request->name;
             $class->save();
 
-            $classes = Classes::all();
+            $classes = DB::table('classes')
+                ->orderBy('classes.created_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $classes,
                 'status' => 200,
@@ -67,16 +69,14 @@ class ApiClass extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $class = Classes::findOrFail($id);
-
             $class->name = $request->name;
             $class->save();
 
-            $classes = Classes::all();
+            $classes = DB::table('classes')
+                ->orderBy('classes.created_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $classes,
                 'status' => 200,
@@ -89,7 +89,9 @@ class ApiClass extends Controller
         $class = Classes::findOrFail($id);
         $class->delete();
 
-        $classes = Classes::all();
+        $classes = DB::table('classes')
+            ->orderBy('classes.created_at', 'DESC')
+            ->get();
         return response()->json($classes);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Achievement;
 
+use App\Models\Achievement;
 use Illuminate\Database\Seeder;
 
 class AchievementSeeder extends Seeder
@@ -28,27 +28,24 @@ class AchievementSeeder extends Seeder
 
             [
                 'classes_id' => 3,
-                'authorName' => 'Nguyen Dinh Long',
+                'authorName' => 'Nguyen Dinh Long, Nguyen Thi Thu Ha, Ho Thi Nhu Quynh, Ho Thi Huong Sen',
                 'topic' => 'Hotel',
                 'technology' => 'React, API',
-                'img' => '',
+                'img' => 'https://i.ibb.co/W2WNCw3/hotel.png',
                 'shortContent' => 'Building a website to book room in the hotel',
                 'content' => 'When you travel , you want to book a cheap, beautiful room. We are here. We build a website to book room online',
                 'link' => '',
             ],
             [
-                'classes_id' => 4,
-                'authorName' => 'Le Son Nam',
-                'topic' => 'Scratch',
-                'technology' => 'Scratch',
-                'img' => '',
-                'shortContent' => 'Build a website to learn English',
-                'content' => 'Everyone can play game to review English lesson in English ',
-                'link' => '',
+                'classes_id' => 3,
+                'authorName' => 'Ha Mong Khang, Ho Thi Hang, Nguyen Hoang Huan, Nguyen Thi Thang',
+                'topic' => 'Travel',
+                'technology' => 'React, API, MySQL',
+                'img' => 'https://i.ibb.co/8g0Nn0b/Travel.png',
+                'shortContent' => 'Build a website to book travel ticket ',
+                'content' => 'When everyone want to travel in the world, they do not know where they travel. They search on the website StartTravel which has got many beautiful places. ',
+                'link' => 'https://github.com/hamongkhang/Travel_website.git',
             ],
-           
-            
-            
         ];
         try {
             foreach ($data as $item) {

@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiEvent extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = DB::table('events')
+            ->orderBy('events.updated_at', 'DESC')
+            ->get();
         return response()->json($events);
     }
 
@@ -32,17 +35,17 @@ class ApiEvent extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $event = new Event();
             $event->title = $request->title;
             $event->img = $request->img;
             $event->content = $request->content;
+            $event->time = $request->time;
             $event->save();
 
-            $events = Event::all();
+            $events = DB::table('events')
+                ->orderBy('events.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $events,
                 'status' => 200,
@@ -73,17 +76,17 @@ class ApiEvent extends Controller
                 'status' => 0,
             ]);
         } else {
-            // $file = $request->file('img');
-            // $name_img = time() . '_' . $file->getClientOriginalName();
-            // $file->move(public_path('images'), $name_img);
 
             $event = Event::findOrFail($id);
             $event->title = $request->title;
             $event->img = $request->img;
             $event->content = $request->content;
+            $event->time = $request->time;
             $event->save();
 
-            $events = Event::all();
+            $events = DB::table('events')
+                ->orderBy('events.updated_at', 'DESC')
+                ->get();
             return response()->json([
                 'results' => $events,
                 'status' => 200,
@@ -96,7 +99,9 @@ class ApiEvent extends Controller
         $event = Event::findOrFail($id);
         $event->delete();
 
-        $events = Event::all();
+        $events = DB::table('events')
+            ->orderBy('events.updated_at', 'DESC')
+            ->get();
         return response()->json($events);
     }
 }

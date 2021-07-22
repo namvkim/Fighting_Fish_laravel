@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gallery;
 use Illuminate\Database\Seeder;
 
 class GallerySeeder extends Seeder
@@ -41,7 +42,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/31TsQ0J/Picture24.png',
                 'subtitle' => 'IT & Training Manager',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -49,7 +50,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/x7zFvH1/Picture34.png',
                 'subtitle' => 'IT Trainer',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -57,7 +58,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/kKg0xgD/Picture35.png ',
                 'subtitle' => 'IT Admin',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -65,7 +66,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/mhc3zqJ/Picture36.png',
                 'subtitle' => 'IT & Training Manager',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -73,7 +74,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/g7zWLfC/Picture41.png',
                 'subtitle' => 'IT Trainer',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -81,7 +82,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/0KdSxd2/Picture37.png',
                 'subtitle' => 'English Coordinator',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -89,7 +90,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/mHgJyQb/Picture21.png',
                 'subtitle' => 'English Teacher',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 3,
@@ -97,23 +98,23 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/jfv3qYQ/Picture38.png',
                 'subtitle' => 'PLT Coordinator',
                 'content' => '',
-                
+
             ],
-           
+
             [
                 'gallery_type_id' => 4,
                 'title' => 'Ms.Huynh Thi Kim Oanh',
                 'img' => 'https://i.ibb.co/FHYDCvH/Picture26.png',
                 'subtitle' => 'External Relations Manager',
                 'content' => '',
-                
-            ],  [
+
+            ], [
                 'gallery_type_id' => 4,
                 'title' => 'Ms.Nguyen Phuoc Bao Tran',
                 'img' => 'https://i.ibb.co/TMzPY6v/Picture27.png',
                 'subtitle' => 'External Relations Officer',
                 'content' => '',
-                
+
             ],
 
             [
@@ -122,7 +123,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/PFx178F/Picture28.png',
                 'subtitle' => 'External Relations Officer',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 5,
@@ -130,7 +131,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/sw3ySTD/Picture29.png',
                 'subtitle' => 'Admin & HR & Finance Manager',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 5,
@@ -138,7 +139,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/qWFKKRy/Picture31.png',
                 'subtitle' => 'Admin & HR & Finance Officer',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 6,
@@ -146,7 +147,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/M2nsn9S/Picture30.png',
                 'subtitle' => 'Education Manager',
                 'content' => '',
-                
+
             ],
             [
                 'gallery_type_id' => 6,
@@ -154,7 +155,7 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/k3dHJMw/Picture32.png',
                 'subtitle' => 'Educator',
                 'content' => '',
-                
+
             ],
 
             [
@@ -163,33 +164,31 @@ class GallerySeeder extends Seeder
                 'img' => 'https://i.ibb.co/0sVRVLG/Picture33.png',
                 'subtitle' => 'Educator',
                 'content' => '',
-                
+
             ],
-           
-           
+
             [
                 'gallery_type_id' => 7,
                 'title' => 'PNV Giving',
                 'img' => 'https://i.ibb.co/NjWgph1/giving.jpg',
                 'subtitle' => 'The happiest people are not those getting more, but those giving more',
                 'content' => 'PNV students had such great time working on their fundraising projects in Education subject. More than 7 million VND was collected and given back to community for charity purposes. Take a look at the happiest faces of PNV.',
-                
+
             ],
-           
+
             [
                 'gallery_type_id' => 7,
                 'title' => 'Merry Christmas',
                 'img' => 'https://i.ibb.co/wwcDq0F/PNV22-B-1.jpg',
                 'subtitle' => '',
                 'content' => '',
-                
+
             ],
-            
-            
+
         ];
         try {
             foreach ($data as $item) {
-                Gallery_type::create($item);
+                Gallery::create($item);
             }
 
         } catch (\Throwable $th) {

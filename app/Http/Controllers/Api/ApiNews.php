@@ -14,7 +14,7 @@ class ApiNews extends Controller
     {
         $newsS = DB::table('news')
             ->join('news_type', 'news_type.id', '=', 'news.news_type_id')
-            ->select('news.id', 'news.news_type_id', 'news.title', 'news.shortContent', 'news.content', 'news.img', 'news.updated_at', 'news_type.type')
+            ->select('news.id', 'news.news_type_id', 'news.title', 'news.shortContent', 'news.content', 'news.img', 'news.updated_at', 'news.users_like', 'news_type.type')
             ->orderBy('news.updated_at', 'DESC')
             ->get();
         return response()->json($newsS);
