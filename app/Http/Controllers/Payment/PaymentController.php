@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\DonateEmail;
 use App\Models\Donation;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -77,6 +78,15 @@ class PaymentController extends Controller
             $donation->money = $request->vnp_Amount / 100;
             $donation->message = $request->vnp_OrderInfo;
             $donation->save();
+
+            $data = [
+                'name' => $user->name,
+                'title' => 'Thank you for your donation.',
+                'money' => $donation->money,
+                'body' => $donation->message,
+                'conclusion' => 'Hope PN and you will have the opportunity to meet in the near future ♥️ ♥️ ♥️!',
+            ];
+            DonateEmail::dispatch($data, $user->email)->delay(now()->addMinute(1));
         }
         return redirect('http://localhost:3000');
     }
