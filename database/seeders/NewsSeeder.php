@@ -89,7 +89,33 @@ class NewsSeeder extends Seeder
                             Main photo: From left to right: Mr. Pierre Desoil – previous PNV Training Manager; Ms. Hoang Thi My Le – DCT Deputy Head of IT major; Mr. Dung HOANG – DCT Vice Director in charge of International Relations; Ms. Trang Vo – PNV External Relations Manager; Mr. Phan Cao Tho – DCT Rector; Ms. Caroline Jouve – previous PNV General Manager; Ms. Truc Tran – PNV Training Officer; Mr. Nguyen Anh Duy – Vice Rector in charge of Training and IT Department. ',
                 'img' => ' https://i.ibb.co/K6LsjF7/Untitled-1-1080x400.png  ',
                 'users_like' => 1,
-            ],
+            ]
+
+            ,
+
+            [
+                'news_type_id' => 2,
+                'title' => ' Internship period of 4 months at companies of PNV20 students ',
+                'shortContent' => ' 
+                [#PNV] Recently, 43 students of #PNV20 have already gone for the 4-month #internship at the companies. They are  had a wonderful time at the IT companies and gained lots of valuable experiences!
+                 ',
+                'content' => '  
+                        Take a look at our interns at companies!
+                        PN Vietnam would like to thank our partners for their support for our internship program. #Thanks! #WeLoveYourPartners
+                        Starting this June, our sophomores are also looking for a 2-month internship in IT companies.
+                        Best wishes to both of our lots!
+                        Our professional training, development activities and career guidance are designed to prepare our students, right from day one, for the corporate world. The first step towards this is the internship.
+                        The staff in charge of training help our students develop the necessary skillset: English, professional skills and soft skills.
+                        All our students therefore have lessons on how to write a CV and cover letter as well as mock interviews. Additional lessons and activities are also organised at the centres: a seminar on getting to know the corporate worlds and company organisations.
+                        Companies are central to the process
+                        Our partner companies are actively involved in this process, and at various different stages: before the internships, to help train students (CV-writing, mock interviews, etc.), obviously at the interview stage, and when the students join their company, and when they subsequently tutor/mentor them.
+                        Their cooperation with Passerelles numériques is essential and allows our students to work in a quality professional environment and get the most out of their first work experience. We talked to three of them about this (click on the photos to read about their experience).
+                        
+                        ',
+                'img' => ' https://i.ibb.co/ykNGwBX/135231834-1829775850519335-522933213676681387-n.jpg ',
+                'users_like' => 1,
+            ]
+            ,
 
             [
                 'news_type_id' => 2,
@@ -104,6 +130,7 @@ class NewsSeeder extends Seeder
                 'img' => '  https://i.ibb.co/W0S8xG2/IMG-6114.jpg ',
                 'users_like' => 1,
             ]
+
             ,
 
             [
@@ -117,7 +144,55 @@ class NewsSeeder extends Seeder
                                 2/ Fruitful efforts
                                 As expected, the event went very well. Whereas last year’s event target was to clarify essential IT skills and soft skills to improve students’ employability, Career Seminar 2019 shifted the focus to companies’ competitive advantages and demands. As a result, the students were expected to be able to define clearly what to do to meet the needs of their targeted companies.
                                 During the event, second-year PN Vietnam students showed their efficiency with detailed, informative, yet lively, presentations on the four companies mentioned above, along with Axon Active and LogiGear. Starting with a general introduction about each company’s history and working environment, the speakers then gradually dug deeper into its working and training system, its technologies as well as benefits and requirements in light of the event’s objectives. After the presentations, came the most exciting part of the day – the Q&A session! The attendees eagerly raised numerous questions, such as the programming languages used or the recruitment criteria in the 6 companies. In this part, students were glad to have the companies’ representatives handle the questions and to provide an “insider’s view“. Additionally, alumni working in the companies also joined the event and shared their experience. This inspired the students and helped them gain more confidence to improve themselves. The Career Seminar created a wonderful opportunity for our students to meet with the companies and thus obtain better visibility of future career options. This could have not have been achieved without the amazing support from our partner companies and sponsors, towards whom PN Vietnam would like to express heartfelt gratitude. ',
-                'img' => ' https://i.ibb.co/5FTMCfw/newsletter-uniform-tshirt.png',
+                'img' => ' https://i.ibb.co/MN4Rx0q/image-NL-website-PNV-400x250.png ',
+                'users_like' => 1,
+            ],
+
+
+            [
+                'news_type_id' => 2,
+                'title' => ' PN Vietnam – Play & learn in the new Lounge
+                ',
+                'shortContent' => ' 2016 started with the aim of bringing a playful learning place with dynamic and innovative activities for students. Passerelles numériques Vietnam (PNV) therefore decided to restructure its current library. The project was carefully planned and closely followed by the Educational Team in every step. ',
+                'content' => ' The Learning Lounge is not simply a library: beside reading books, it is also a place for students to learn and to entertain together. It is an adapted environment to students and teachers needs, both during and out of class time.
+                                After two months of hard work, with the support of the Training team for book suggestions, Admin team for furniture purchase and students for the decoration, the library was finally ready in March 2016.
+                                More than a working place…
+                                To make it comfortable for students, the room is equipped with tea tables and cushions instead of regular desks. This original outline creates a warm and friendly atmosphere. One wall is decorated by PN Vietnam’s talented students who had previously shown their creativity through classroom decorations. Moreover, the library name was selected among students proposals.
+                                “I’m very glad we have a new library. Now I have a quiet and pretty space for reading. I can read more books without spending money,” expressed with joy Xuan Cuong Tran, Class of 2017.
+                                PNV staff and visitors listening to a guitar performance offered by students.
+                                PNV staff and visitors listening to a guitar performance offered by students.
+                                The Learning Lounge is not only for students to study individually or in groups, it is also a place where teachers can organise sessions for the English club, Professional Life Training and other educational activities. Besides, the library is a relaxing space with some music instruments (guitar, ukulele, flute), board games and movies. The Education team is planning to arrange some “movie nights” to entertain students after a long day at school. The Learning Lounge is also the perfect place to grab a book. In order to meet all the students’ reading appetite, the Education team tried to collect different types of books and magazines. Thanks to this wide variety, students will find more than only IT books: history, cooking, philosophy, novels, etc.
+                                Last but not least, it can be a place for the staff to organise team meetings or socialise with visitors and volunteers.
+                                Second-year student Thi Manh Linh Tran shares her feelings: I am very excited to be able to learn, and share precious moments with my friends in a new environment. The Learning Lounge is a place of calm and comfort, and it is perfect for self-studying sessions as well as group learning activities.
+                                An amazing support by Société Générale
+                                On the 15th of March, PN Vietnam was very honored to welcome Mr. Pascal Lambert, Mr. Gregory Thong and Mr. Paul Birckel, representatives from Société Générale Singapour to attend the opening event.
+                                Lise Simonneau, Education and Selection Manager, who led this project from the beginning, expressed her happiness: I am very pleased that the project is finally realized. I am convinced that this place will not only enhance students’ motivation to study and learn new things, but it will also develop their creativity and their well-being at PN Vietnam.
+                                From right to Left: Lise Simonneau (PNV Education and Selection Manager), Gregory Thong and Paul Birckel (Société Générale), Pascal Lambert (Société Générale) and his wife, and Julie Tardieu (PNV General Manager).
+                                From right to Left: Lise Simonneau (PNV Education and Selection Manager), Gregory Thong and Paul Birckel (Société Générale), Pascal Lambert (Société Générale) and his wife, and Julie Tardieu (PNV General Manager).
+                                The entire staff and students of Passerelles numériques Vietnam would like to express their sincere gratitude to the Société Générale Singapore for their donation and to all the contributors who helped building the library. ',
+                'img' => ' https://i.ibb.co/pZRdkSF/good-size-1080x400.jpg ',
+                'users_like' => 1,
+            ],
+
+            [
+                'news_type_id' => 3,
+                'title' => 'FEEDING HOPE POWERFUL DREAMS COVID Season
+                
+                 ',
+                'shortContent' => ' WHY #ITRAISESIT – A FUNDRAISING CAMPAIGN INITIATED BY PASSERELLES NUMÉRIQUES VIETNAM? ',
+                'content' => ' Because you not only provide instant needs to our students but also equip them with professional skills through education.
+                            - Because PNV is a unique school where cultivate and nourish beautiful dreams about being IT engineers in the future
+                            - Because kindness is easy to spread yet it is much harder to do philanthropy sustainably. Let’s join hands with us to build a better society.
+                            Calling to support 30 LAPTOP for poor students at PNV organization .
+                            PNV is free IT vocational center currently has 126 students enrolled, however, there are only 108 desktop computers for them to practice. Therefore, they often have to share computers and do not have much time to practice effectively.
+                            Not stopping there, when entering the period of social distancing, all students must switch to online learning at the dormitory.
+                            Each dormitory room has 8 students living and studying together
+                            However, there is only enough space to install 3 sets of desktop computers.
+                            The already difficult practice is now even more difficult.
+                            However, what touched us the most was that you guys did not give up, took turns using the machine and even went to write code and program on paper.
+                            In order for students to have laptops to continue their learning journey and realize their ambitions, the program "FEEDING HOPE RESPONDING DREAM IN COVID SUMMER" wishes to receive the support of the community.
+                            ',
+                'img' => '  https://i.ibb.co/7RhWQSS/186572895-3947847568628030-8526731142375805092-n.jpg ',
                 'users_like' => 1,
             ],
 
@@ -171,30 +246,6 @@ class NewsSeeder extends Seeder
                 'users_like' => 1,
             ],
 
-            [
-                'news_type_id' => 4,
-                'title' => ' PN Vietnam – Play & learn in the new Lounge
-                ',
-                'shortContent' => ' 2016 started with the aim of bringing a playful learning place with dynamic and innovative activities for students. Passerelles numériques Vietnam (PNV) therefore decided to restructure its current library. The project was carefully planned and closely followed by the Educational Team in every step. ',
-                'content' => ' The Learning Lounge is not simply a library: beside reading books, it is also a place for students to learn and to entertain together. It is an adapted environment to students and teachers needs, both during and out of class time.
-                                After two months of hard work, with the support of the Training team for book suggestions, Admin team for furniture purchase and students for the decoration, the library was finally ready in March 2016.
-                                More than a working place…
-                                To make it comfortable for students, the room is equipped with tea tables and cushions instead of regular desks. This original outline creates a warm and friendly atmosphere. One wall is decorated by PN Vietnam’s talented students who had previously shown their creativity through classroom decorations. Moreover, the library name was selected among students proposals.
-                                “I’m very glad we have a new library. Now I have a quiet and pretty space for reading. I can read more books without spending money,” expressed with joy Xuan Cuong Tran, Class of 2017.
-                                PNV staff and visitors listening to a guitar performance offered by students.
-                                PNV staff and visitors listening to a guitar performance offered by students.
-                                The Learning Lounge is not only for students to study individually or in groups, it is also a place where teachers can organise sessions for the English club, Professional Life Training and other educational activities. Besides, the library is a relaxing space with some music instruments (guitar, ukulele, flute), board games and movies. The Education team is planning to arrange some “movie nights” to entertain students after a long day at school. The Learning Lounge is also the perfect place to grab a book. In order to meet all the students’ reading appetite, the Education team tried to collect different types of books and magazines. Thanks to this wide variety, students will find more than only IT books: history, cooking, philosophy, novels, etc.
-                                Last but not least, it can be a place for the staff to organise team meetings or socialise with visitors and volunteers.
-                                Second-year student Thi Manh Linh Tran shares her feelings: I am very excited to be able to learn, and share precious moments with my friends in a new environment. The Learning Lounge is a place of calm and comfort, and it is perfect for self-studying sessions as well as group learning activities.
-                                An amazing support by Société Générale
-                                On the 15th of March, PN Vietnam was very honored to welcome Mr. Pascal Lambert, Mr. Gregory Thong and Mr. Paul Birckel, representatives from Société Générale Singapour to attend the opening event.
-                                Lise Simonneau, Education and Selection Manager, who led this project from the beginning, expressed her happiness: I am very pleased that the project is finally realized. I am convinced that this place will not only enhance students’ motivation to study and learn new things, but it will also develop their creativity and their well-being at PN Vietnam.
-                                From right to Left: Lise Simonneau (PNV Education and Selection Manager), Gregory Thong and Paul Birckel (Société Générale), Pascal Lambert (Société Générale) and his wife, and Julie Tardieu (PNV General Manager).
-                                From right to Left: Lise Simonneau (PNV Education and Selection Manager), Gregory Thong and Paul Birckel (Société Générale), Pascal Lambert (Société Générale) and his wife, and Julie Tardieu (PNV General Manager).
-                                The entire staff and students of Passerelles numériques Vietnam would like to express their sincere gratitude to the Société Générale Singapore for their donation and to all the contributors who helped building the library. ',
-                'img' => ' https://i.ibb.co/pZRdkSF/good-size-1080x400.jpg ',
-                'users_like' => 1,
-            ],
 
             [
                 'news_type_id' => 4,
@@ -302,6 +353,23 @@ class NewsSeeder extends Seeder
                                 Dien has good abilities, he is capable of identifying and solving a problem and he is also a confident speaker. He fulfils the training and working objectives we have defined for him well.
                 ',
                 'img' => ' https://i.ibb.co/k2BWQWj/Header-From-The-Field.jpg',
+                'users_like' => 1,
+            ],
+
+            
+            [
+                'news_type_id' => 5,
+                'title' => ' Vietnam – PNV19 Graduates, we are proud of you!
+                ',
+                'shortContent' => '  Last October, 40 class PNV19 students graduated, becoming the first class to complete PN Vietnam’s new three-year training program. Eight months on, we are reaching out again to see how they are doing, and how PN has had a positive initial impact on their lives. We are glad to present heartwarming stories from three of our class 2019 alumni: NGUYEN Hong Phong (left), NGUYEN Thi Hang (middle), NGUYEN Van Cu (right).',
+                'content' => '  
+                            Before launching the three-year training program, PN Vietnam had conducted a rigorous market study and consulted partners to understand the needs, demands and new trends from employers and the IT market. After that, we upgraded our program to equip students even better with knowledge and skills necessary for their employability. As a result, over 95% of graduates from the first promotion of this training program found a job less than 3 months after graduating. Most of them now work in Software Testing, Mobile Software Development or Web Development, the most popular specializations at PN Vietnam. The holistic approach of PNV training and education has greatly molded our alumni for the job market.
+                            PN Vietnam students were not just provided with technical knowledge, language and soft skills, they were also offered the opportunity to better themselves thanks to two internships during their second and third years.
+                            Like most of their peers, PNV2019 graduates also had to face reality and some challenges when adapting to a new environment after graduating. However, the skills and knowledge gained from PN Vietnam have helped them better overcome these obstacles, as illustrated by Hang’s experience.
+                            Eight months after graduation, the vast majority of our PNV2019 alumni have fully adapted to their new lives and become financially independent. All of them have been able to support their families in one way or another. Hang now supports her brothers’ education expenses; Phong sends some of his monthly salary to his parents; while Cu has been able to renovate his family home, which plays an important role in his life.
+                            Seeing our alumni making concrete steps in their lives gives PN Vietnam teachers and staff members an enormous sense of pride. It also motivates us to continue doing our best to contribute to the common good of the community. Join PN Vietnam on this rewarding journey and donate or become a volunteer today!
+                ',
+                'img' => 'https://i.ibb.co/0Xq1NdS/PNV19-GRADUATES-WE-ARE-PROUD-OF-YOU-1-1080x450.png',
                 'users_like' => 1,
             ],
 
