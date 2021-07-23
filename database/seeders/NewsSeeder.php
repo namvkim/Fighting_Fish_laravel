@@ -246,7 +246,6 @@ class NewsSeeder extends Seeder
                 'users_like' => 1,
             ],
 
-
             [
                 'news_type_id' => 4,
                 'title' => ' Move your body with PN Vietnam                 ',
@@ -356,7 +355,6 @@ class NewsSeeder extends Seeder
                 'users_like' => 1,
             ],
 
-            
             [
                 'news_type_id' => 5,
                 'title' => ' Vietnam – PNV19 Graduates, we are proud of you!
