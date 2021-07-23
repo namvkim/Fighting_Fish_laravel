@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Email\DonateEmailController;
 use App\Http\Controllers\Email\EmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::resource('admin/user/visited', VisitedController::class);
-Route::get('/email', function () {
-    return view('mails.FormEmail');
-});
-Route::post('/sendEmail', [EmailController::class, 'store']);
+// Route::get('/email', function () {
+//     return view('mails.FormEmail');
+// });
+// Route::post('/sendEmail', [EmailController::class, 'store']);
+// Route::post('/sendEmailContact', [ContactEmailController::class, 'store']);
+// Route::post('/sendEmailDonate', [DonateEmailController::class, 'store']);

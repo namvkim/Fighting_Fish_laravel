@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailNotify extends Mailable
+class MailDonateNotify extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +31,7 @@ class MailNotify extends Mailable
    public function build()
    {
        return $this->from('luong.ho22@student.passerellesnumeriques.org')
-           ->view('mails.SubscribeEmail')
-           ->subject('Subscribe Email');
+           ->view('mails.DonateEmail')
+           ->subject('Donate Email');
    }
 }

@@ -18,12 +18,15 @@
     @if (session('message'))
         <h2 style="color:green">{{ session('message') }}</h2>
     @endif
-    <form action="{{url('sendEmail')}}" method="POST" role="form">
+    <form action="{{url('sendEmailDonate')}}" method="POST" role="form">
         @csrf
         <div class="container">
         <div class="form-group">
-            <h1>Email Contact</h1>
-            <input type="text" name="txtEmail" class="form-control" id="" placeholder="Input email">
+            <h1>Donate Contact</h1>
+            <input type="text" name="email" class="form-control" id="" placeholder="Input email">
+            <input type="text" name="name" class="form-control" id="" placeholder="Input name">
+            <input type="text" name="money" class="form-control" id="" placeholder="Input money">
+            <input type="text" name="message" class="form-control" id="" placeholder="Input message">
         </div>
         <button type="submit" class="btn btn-warning">Submit</button>
         </div>

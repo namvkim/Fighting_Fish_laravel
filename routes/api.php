@@ -17,6 +17,8 @@ use App\Http\Controllers\Api\ApiNewsType;
 use App\Http\Controllers\Api\ApiStaff;
 use App\Http\Controllers\Api\ApiStaffType;
 use App\Http\Controllers\Api\ApiUser;
+use App\Http\Controllers\Email\EmailController;
+use App\Http\Controllers\Email\ContactEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('admin', ApiAdmin::class);
@@ -36,3 +38,8 @@ Route::resource('gallery', ApiGallery::class);
 Route::resource('achievement', ApiAchievement::class);
 Route::resource('class', ApiClass::class);
 Route::resource('adminlogin', ApiAdminLogin::class);
+
+
+Route::post('/sendEmail', [EmailController::class, 'store']);
+Route::post('/sendEmailContact', [ContactEmailController::class, 'store']);
+Route::post('/sendEmailDonate', [DonateEmailController::class, 'store']);
