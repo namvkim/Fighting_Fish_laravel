@@ -12,8 +12,9 @@ class Users extends Migration
             $table->bigIncrements('id');
             $table->char('name', 50);
             $table->char('email', 100);
-            $table->char('phone', 11);
+            $table->char('phone', 20);
             $table->string('address');
+            $table->string('vnp_TxnRef');
             $table->timestamps();
         });
     }
