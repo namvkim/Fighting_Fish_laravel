@@ -1,30 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Email;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\EnrollEmail;
 use App\Models\Enroll;
 use Illuminate\Http\Request;
 
-class EnrollEmailController extends Controller
+class ApiEnroll extends Controller
 {
     public function index()
     {
+        $enrolls = Enroll::all();
+        return response()->json($enrolls);
 
     }
-
     public function store(Request $request)
     {
 
-        $enroller = new Enroll();
-        $enroller->name = $request->name;
-        $enroller->phone = $request->phone;
-        $enroller->school = $request->school;
-        $enroller->email = $request->email;
-        $enroller->address = $request->address;
-        $enroller->circumstance = $request->circumstances; //hoàn cảnh gia đình(mồ côi, bố mẹ ly hôn)
-        $enroller->save();
         $message = [
             'title' => 'Thank you for your application with us.',
             'name' => $request->name,
@@ -33,21 +26,24 @@ class EnrollEmailController extends Controller
         ];
         EnrollEmail::dispatch($message, $request->email)->delay(now()->addMinute(1));
 
-        return redirect()->back();
+        $enroller = new Enroll();
+        $enroller->name = $request->name;
+        $enroller->img = $request->img;
+        $enroller->phone = $request->phone;
+        $enroller->school = $request->school;
+        $enroller->email = $request->email;
+        $enroller->address = $request->address;
+        $enroller->circumstance = $request->circumstance; //hoàn cảnh gia đình(mồ côi, bố mẹ ly hôn)
+        $enroller->save();
+
+        return $request->email;
     }
-
-    public function show($id)
-    {
-    }
-
-    public function update(Request $request, $id)
-    {
-
-    }
-
     public function destroy($id)
     {
+        $enroll = Enroll::findOrFail($id);
+        $enroll->delete();
 
+        $enrolls = Enroll::all();
+        return response()->json($enrolls);
     }
-
 }

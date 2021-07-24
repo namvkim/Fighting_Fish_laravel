@@ -16,21 +16,6 @@ class ContactEmailController extends Controller
 
     public function store(Request $request)
     {
-
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = 'None';
-        $user->vnp_TxnRef = 'None';
-        $user->address = 'None';
-        $user->save();
-
-        $contact = new Contact;
-        $contact->users_id = $user->id;
-        $contact->title = $request->title;
-        $contact->message = $request->message;
-        $contact->save();
-
         $data = [
             'name' => $request->name,
             'title' => $request->title,
@@ -39,7 +24,21 @@ class ContactEmailController extends Controller
         ];
         EmailContact::dispatch($data, $request->email)->delay(now()->addMinute(1));
 
-        return redirect()->back();
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = 'N/A';
+        $user->vnp_TxnRef = 'N/A';
+        $user->address = 'N/A';
+        $user->save();
+
+        $contact = new Contact;
+        $contact->users_id = $user->id;
+        $contact->title = $request->title;
+        $contact->message = $request->message;
+        $contact->save();
+
+        return $request->email;
     }
 
     public function show($id)

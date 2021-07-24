@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ApiBanner;
 use App\Http\Controllers\Api\ApiClass;
 use App\Http\Controllers\Api\ApiContact;
 use App\Http\Controllers\Api\ApiDonation;
+use App\Http\Controllers\Api\ApiEnroll;
 use App\Http\Controllers\Api\ApiEvent;
 use App\Http\Controllers\Api\ApiGallery;
 use App\Http\Controllers\Api\ApiGalleryType;
@@ -19,7 +20,6 @@ use App\Http\Controllers\Api\ApiStaffType;
 use App\Http\Controllers\Api\ApiUser;
 use App\Http\Controllers\Email\ContactEmailController;
 use App\Http\Controllers\Email\EmailController;
-use App\Http\Controllers\Email\EnrollEmailController;
 use App\Http\Controllers\Payment\PaymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,11 +40,11 @@ Route::resource('gallery', ApiGallery::class);
 Route::resource('achievement', ApiAchievement::class);
 Route::resource('class', ApiClass::class);
 Route::resource('adminlogin', ApiAdminLogin::class);
+Route::resource('enroll', ApiEnroll::class);
 
 Route::get('/vnpay_return', [PaymentController::class, 'vnpayReturn']);
 Route::post('/vnPay', [PaymentController::class, 'createPayment']);
 
 Route::post('/sendEmail', [EmailController::class, 'store']);
 Route::post('/sendEmailContact', [ContactEmailController::class, 'store']);
-Route::post('/sendEmailDonate', [DonateEmailController::class, 'store']);
-Route::post('/sendEmailEnroll', [EnrollEmailController::class, 'store']);
+// Route::post('/sendEmailDonate', [DonateEmailController::class, 'store']);
