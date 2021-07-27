@@ -38,7 +38,7 @@ class PaymentController extends Controller
             "vnp_IpAddr" => $vnp_IpAddr,
             "vnp_Locale" => $vnp_Locale,
             "vnp_OrderInfo" => $vnp_OrderInfo,
-            "vnp_ReturnUrl" => 'http://127.0.0.1:8000/api/vnpay_return',
+            "vnp_ReturnUrl" => 'https://fightingfishpnv22laravel.herokuapp.com/api/vnpay_return',
             "vnp_TxnRef" => $vnp_TxnRef,
         );
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
@@ -88,6 +88,6 @@ class PaymentController extends Controller
             ];
             DonateEmail::dispatch($data, $user->email)->delay(now()->addMinute(1));
         }
-        return redirect('http://localhost:3000');
+        return redirect('https://fightingfishpnv22reactjs.herokuapp.com');
     }
 }
